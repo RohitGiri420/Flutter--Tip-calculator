@@ -14,7 +14,10 @@ class _HomePageState extends State<HomePage> {
   double totalBill = 0;
   double totalTip=0;
   int splitCount=1;
-  double? b =0 ;
+
+  double? finalPerPersonBill =0;
+  double? finalTotalBill=0;
+  double finalTotalTip=0;
 
 
   int enteredAmount= 0;
@@ -99,7 +102,7 @@ class _HomePageState extends State<HomePage> {
 
 
                     Text(
-                      "₹${b}",
+                      "₹${finalPerPersonBill}",
                       style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
                     ),
                     Padding(
@@ -129,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.w400),
                             ),
                             Text(
-                              "₹$totalBill",
+                              "₹$finalTotalBill",
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 202, 191, 1),
                                   fontSize: 25,
@@ -145,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w400),
                             ),
                             Text(
-                              "₹$totalTip",
+                              "₹$finalTotalTip",
                               style: TextStyle(
                                   color: Color.fromRGBO(0, 202, 191, 1),
                                   fontSize: 25,
@@ -404,7 +407,9 @@ class _HomePageState extends State<HomePage> {
                 totalTip = ((enteredAmount/tempnum)*tipPercent);
                 totalBill =enteredAmount+totalTip;
                 perPersonBill = totalBill/splitCount;
-                b = double.parse(perPersonBill.toStringAsFixed(2));
+                finalPerPersonBill = double.parse(perPersonBill.toStringAsFixed(2));
+                finalTotalTip = double.parse(totalTip.toStringAsFixed(2));
+                finalTotalBill = double.parse(totalBill.toStringAsFixed(2));
                 setState(() {
 
                 });
